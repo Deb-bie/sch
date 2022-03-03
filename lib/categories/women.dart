@@ -5,15 +5,16 @@ import 'package:scholarships/models/model.dart';
 import 'package:scholarships/services/api_services.dart';
 
 
-class Canada extends StatefulWidget {
-  const Canada({ Key? key }) : super(key: key);
+class Women extends StatefulWidget {
+  const Women({ Key? key }) : super(key: key);
 
   @override
-  _CanadaState createState() => _CanadaState();
+  _WomenState createState() => _WomenState();
 }
 
-class _CanadaState extends State<Canada> {
-  CanadaApi client = CanadaApi();
+class _WomenState extends State<Women> {
+
+  WomenApi client = WomenApi();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class _CanadaState extends State<Canada> {
         backgroundColor: Colors.grey[800],
         // ignore: prefer_const_constructors
         title: Text(
-          "Canadian Scholarships"
+          "Scholarships for Women"
         ),
       ),
       body: SafeArea(

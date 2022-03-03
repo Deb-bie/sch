@@ -39,9 +39,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     Timer(
       Duration(seconds: 5), ()=>Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context) => 
-          // Home(),
-          // SideBarLayout(),
-          // Layout(),
           Home()
         ))
     );

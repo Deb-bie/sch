@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scholarships/models/model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 Widget tile(Model model, BuildContext context) {
@@ -21,20 +22,19 @@ Widget tile(Model model, BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
   
-        children: [
-          // Container(
-          //   height: 200.0,
-          //   width: double.infinity,
-          //   decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //       image: NetworkImage(model.image),
-          //       fit: BoxFit.cover
-          //     ),
-          //     borderRadius: BorderRadius.circular(8.0)
-          //   ),
-          // ),
-  
-          // const SizedBox(height:18.0),
+        children: [  
+
+          Container(
+            height: 200.0,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/b1.jpg'),
+                fit: BoxFit.cover
+              ),
+              borderRadius: BorderRadius.circular(8.0)
+            ),
+          ),
   
           Container(
             decoration: BoxDecoration(
@@ -49,16 +49,32 @@ Widget tile(Model model, BuildContext context) {
               ),
             ),
           ),
-  
-          const SizedBox(height: 8.0),
-  
-          Text(
-            model.address,
-  
-            style: const TextStyle(
-              fontSize: 16.0,
-              color: Colors.red
-            ),
+
+          const SizedBox(height: 12.0,),
+
+          Center(
+            child: ElevatedButton.icon(
+              label: Text("Visit"),
+              icon: Icon(Icons.call_made),
+                onPressed: () async {
+                  final url = model.address;
+
+                  if(await canLaunch(url)){
+                    launch(url);
+                  } else {
+                    print("Can't launch url");
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  // primary: Color(0xFF262AAA),
+                  primary: Color.fromARGB(255, 121, 125, 248),
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)
+                  )
+                ),
+                // child: const Text("Vist Page")
+              ),
           ),
         ],
       ),

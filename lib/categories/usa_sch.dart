@@ -16,36 +16,6 @@ class _UsaState extends State<Usa> {
 
   USApi client = USApi();
 
-
-  //  _launchURL(url) async {
-  //   // var urls = article.url;
-  //   if (await canLaunch(url)) {
-  //     await launch(
-  //       url,
-  //       forceSafariVC: false,
-  //       forceWebView: false,
-  //       enableJavaScript: true
-  //     );
-  //     print('true');
-  //     return ;
-  //   } else {
-  //   throw 'Could not launch $url';
-  //   }
-  // }
-
-
-
-  // ElevatedButton(
-  //             onPressed: () {
-
-  //               // print('true');
-
-  //               _launchURL(article.url);
-  //             },
-  //             child: const Text("Link") 
-  //           ),
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +41,7 @@ class _UsaState extends State<Usa> {
             }
 
             return const Center(
-              child: CupertinoActivityIndicator()
+              child: CupertinoActivityIndicator(radius: 20,)
             );
           }
         ),
